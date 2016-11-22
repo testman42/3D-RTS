@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://game/scenes/UI/camera_triggers.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/scenes/UI/build_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/scenes/UI/selected_info.tscn" type="PackedScene" id=3]
+
+[node name="HUD" type="Node2D"]
+
+[node name="camera_triggers" parent="." instance=ExtResource( 1 )]
+
+[node name="build_menu" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 786.137, 168.133 )
+
+[node name="selected_info" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 695.254, 499.856 )
+
+

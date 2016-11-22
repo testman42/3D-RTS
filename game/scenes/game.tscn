@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://game/scenes/main.gd" type="Script" id=1]
+[ext_resource path="res://game/scenes/UI/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/scenes/actors/constructions/cone_of_construction.tscn" type="PackedScene" id=3]
+[ext_resource path="res://data/models/mesh/pyramid.msh" type="Mesh" id=4]
+[ext_resource path="res://game/scenes/maps/map1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/scenes/UI/camera.tscn" type="PackedScene" id=6]
+
+[sub_resource type="FixedMaterial" id=1]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = false
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 0.0
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 0.0901961, 1, 0, 1 )
+params/specular = Color( 0, 0.351562, 0.00549316, 1 )
+params/emission = Color( 0.0253296, 0.324219, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[node name="game" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource( 2 )]
+
+[node name="world" type="Spatial" parent="."]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="actors" type="Spatial" parent="world"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="constructions" type="Spatial" parent="world/actors"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="cone_of_construction" parent="world/actors/constructions" instance=ExtResource( 3 )]
+
+[node name="units" type="Spatial" parent="world/actors"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="test_marker" type="Position3D" parent="world/actors"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="world/actors/test_marker"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.1, 0, 0, 0, -0.5, 3.89414e-08, 0, -1.94707e-07, -0.1, 0, 0.340338, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+mesh/mesh = ExtResource( 4 )
+mesh/skeleton = NodePath("..")
+material/0 = SubResource( 1 )
+
+[node name="terrain" type="Spatial" parent="world"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="map" parent="world/terrain" instance=ExtResource( 5 )]
+
+[node name="camera" parent="world" instance=ExtResource( 6 )]
+
+transform/local = Transform( -0.0761757, 0, -0.997095, 0, 1, 0, 0.997095, 0, -0.0761757, 0, 0, 0 )
+
+

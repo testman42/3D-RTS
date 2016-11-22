@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://data/models/mesh/plankobj.msh" type="Mesh" id=1]
+
+[sub_resource type="NavigationMesh" id=1]
+
+vertices = Vector3Array( 1, 0, 1, -1, 0, -1, -1, 0, 1, 1, 0, -1 )
+polygons = [ IntArray( 0, 2, 1 ), IntArray( 0, 1, 3 ) ]
+
+[node name="library" type="Node"]
+
+[node name="tile" type="Spatial" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="tile" type="MeshInstance" parent="tile"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 0.02, 0, 0, 0, 1, 0, 0, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+mesh/mesh = ExtResource( 1 )
+mesh/skeleton = NodePath("..")
+material/0 = null
+
+[node name="navmesh" type="NavigationMeshInstance" parent="tile/tile"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 50, 0, 0, 0, 1, 0, 1, 0 )
+navmesh = SubResource( 1 )
+enabled = true
+
+
