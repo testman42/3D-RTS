@@ -62,6 +62,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="constructions" type="Spatial" parent="world/actors"]
 
+editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings" ] instance=ExtResource( 3 )]

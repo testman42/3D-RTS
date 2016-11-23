@@ -45,7 +45,7 @@ func update_build_options():
 		for child in buildings_grid.get_children():
 			child.connect("pressed", self, "on_"+child.get_name()+"_pressed")
 
-		# build order logic
+		# building hierarchy
 		if requirements[0] == "cc":
 			buildings_grid.get_node("rr").show()
 			if requirements[1] == "rr":
@@ -61,16 +61,30 @@ func update_build_options():
 	units_tab.set_name("Units")
 	for i in range(gear_count):
 		var number_tab = GridContainer.new()
-		number_tab.set_name(str(i))
+		number_tab.set_name(str(i+1))
 		var units_grid = units_grid_scene.instance()
 		number_tab.add_child(units_grid)
 		units_tab.add_child(number_tab)
+		
+		for child in units_grid.get_children():
+			child.connect("pressed", self, "on_"+child.get_name()+"_pressed")
+	
+		#units hierarchy
+		if requirements[3] == "gg":
+			units_grid.get_node("collector").show()
+			units_grid.get_node("basic_tank").show()
+		if requirements[4] == "oo":
+			units_grid.get_node("big_tank").show()
+			#units_grid.get_node("gfm").show()
 	
 	var current_tabs = get_node("type_select").get_children()
 	for child in current_tabs:
 		get_node("type_select").remove_child(child)
-	get_node("type_select").add_child(buildings_tab)
-	get_node("type_select").add_child(units_tab)
+	
+	if requirements[0] == "cc":
+		get_node("type_select").add_child(buildings_tab)
+	if requirements[3] == "gg":
+		get_node("type_select").add_child(units_tab)
 	
 
 
@@ -85,6 +99,15 @@ func on_gg_pressed():
 
 func on_cc_pressed():
 	get_node("/root/game").start_placing_building("res://game/scenes/actors/constructions/cone_of_construction.tscn")
-
+	
 func on_oo_pressed():
 	get_node("/root/game").start_placing_building("res://game/scenes/actors/constructions/orb_of_observation.tscn")
+	
+func on_collector_pressed():
+	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/collector.tscn")
+	
+func on_basic_tank_pressed():
+	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/basic_tank.tscn")
+	
+func on_big_tank_pressed():
+	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/big_tank.tscn")

@@ -11,11 +11,11 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-#	if event.is_action("select"):
-#		get_node("world/actors/test_marker").set_translation(mouse2coords(event))
+	if event.is_action("order"):
+		for unit in get_tree().get_nodes_in_group("selected"):
+			unit.move(mouse2coords(event))
 	if placing_building:
 		building_node.set_translation(mouse2coords(event))
-		
 		
 	if placing_building and event.is_action_pressed("confirm_placement"):
 		if !building_location:
@@ -36,6 +36,10 @@ func _input(event):
 	if placing_building and event.is_action("cancel_placement"):
 		cancel_building_placement()
 		
+	if event.is_action("cancel_selection"):
+		for unit in get_tree().get_nodes_in_group("selected"):
+			unit.deselect()
+		
 func mouse2coords(event):
 	var near = camera.project_ray_origin(event.pos)
 	var far = near + camera.project_ray_normal(event.pos)*100
@@ -54,3 +58,9 @@ func cancel_building_placement():
 	get_node("world/actors/constructions").remove_child(building_node)
 	placing_building = 0
 	rotating_building = 0
+	
+func spawn_unit(nodepath):
+	var unit_scene = load(nodepath)
+	var unit = unit_scene.instance()
+	get_node("world/actors/units").add_child(unit)
+	unit.set_translation(get_node("world/actors/constructions").get_node("gear_of_generating").get_translation())
