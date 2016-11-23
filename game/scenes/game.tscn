@@ -54,20 +54,17 @@ script/script = ExtResource( 1 )
 
 [node name="world" type="Spatial" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="actors" type="Spatial" parent="world"]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="constructions" type="Spatial" parent="world/actors"]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="cone_of_construction" parent="world/actors/constructions" instance=ExtResource( 3 )]
+[node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings" ] instance=ExtResource( 3 )]
 
 [node name="units" type="Spatial" parent="world/actors"]
 

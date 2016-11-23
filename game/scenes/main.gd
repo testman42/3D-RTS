@@ -26,7 +26,9 @@ func _input(event):
 	if rotating_building and event.type==InputEvent.MOUSE_MOTION:
 		building_node.look_at(mouse2coords(event), Vector3(0,1,0))
 		
-	if event.is_action_released("confirm_placement"):
+	if rotating_building and event.is_action_released("confirm_placement"):
+		building_node.add_to_group("buildings")
+		get_node("UI/HUD/build_menu").update_build_options()
 		placing_building = 0
 		rotating_building = 0
 		building_location = 0

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://data/models/mesh/cone.msh" type="Mesh" id=1]
 
-[sub_resource type="FixedMaterial" id=3]
+[sub_resource type="FixedMaterial" id=1]
 
 flags/visible = true
 flags/double_sided = false
@@ -50,10 +50,10 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 [node name="mesh" type="MeshInstance" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform/local = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.48538, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 3 )
+geometry/material_override = SubResource( 1 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -76,7 +76,7 @@ input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shapes/0/transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.52758, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -100,7 +100,7 @@ damp_override/angular = -1.0
 [node name="collision" type="CollisionShape" parent="body"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform/local = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.52758, 0 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
