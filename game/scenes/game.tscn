@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://game/scenes/main.gd" type="Script" id=1]
-[ext_resource path="res://game/scenes/UI/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://game/scenes/actors/constructions/cone_of_construction.tscn" type="PackedScene" id=3]
-[ext_resource path="res://data/models/mesh/pyramid.msh" type="Mesh" id=4]
-[ext_resource path="res://game/scenes/maps/map1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://game/scenes/UI/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/scripts/UI.gd" type="Script" id=2]
+[ext_resource path="res://game/scenes/UI/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/scenes/actors/constructions/cone_of_construction.tscn" type="PackedScene" id=4]
+[ext_resource path="res://data/models/mesh/pyramid.msh" type="Mesh" id=5]
+[ext_resource path="res://game/scenes/maps/map1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/scenes/actors/misc/polygons.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/scenes/actors/misc/voxels.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/scenes/UI/camera.tscn" type="PackedScene" id=9]
 
 [sub_resource type="FixedMaterial" id=1]
 
@@ -47,10 +50,16 @@ textures/shade_param_tc = 0
 [node name="game" type="Node"]
 
 script/script = ExtResource( 1 )
+placing_building = 0
+just_selected = 0
 
 [node name="UI" type="Node2D" parent="."]
 
-[node name="HUD" parent="UI" instance=ExtResource( 2 )]
+editor/display_folded = true
+script/script = ExtResource( 2 )
+draw = 0
+
+[node name="HUD" parent="UI" instance=ExtResource( 3 )]
 
 [node name="world" type="Spatial" parent="."]
 
@@ -62,10 +71,9 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="constructions" type="Spatial" parent="world/actors"]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings" ] instance=ExtResource( 3 )]
+[node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings" ] instance=ExtResource( 4 )]
 
 [node name="units" type="Spatial" parent="world/actors"]
 
@@ -75,6 +83,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+visibility/visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="world/actors/test_marker"]
 
@@ -94,17 +103,137 @@ geometry/depth_scale = false
 geometry/visible_in_all_rooms = false
 geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
-mesh/mesh = ExtResource( 4 )
+mesh/mesh = ExtResource( 5 )
 mesh/skeleton = NodePath("..")
 material/0 = SubResource( 1 )
 
 [node name="terrain" type="Spatial" parent="world"]
 
+editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="map" parent="world/terrain" instance=ExtResource( 5 )]
+[node name="map" parent="world/terrain" instance=ExtResource( 6 )]
 
-[node name="camera" parent="world" instance=ExtResource( 6 )]
+[node name="resources" type="Spatial" parent="world/terrain"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="polygons" type="Spatial" parent="world/terrain/resources"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="polygons" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.891, 0.19667, 0 )
+
+[node name="polygons6 5" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1127, 0.19667, 0 )
+
+[node name="polygons5 4" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8145, 0.19667, 0 )
+
+[node name="polygons55" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0362, 0.19667, 0 )
+
+[node name="polygons1" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.891, 0.19667, 1.00145 )
+
+[node name="polygons6 6" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1127, 0.19667, 1.00145 )
+
+[node name="polygons5 5" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8145, 0.19667, 1.00145 )
+
+[node name="polygons56" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0362, 0.19667, 1.00145 )
+
+[node name="polygons2" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.891, 0.19667, -1.25387 )
+
+[node name="polygons6 2" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1127, 0.19667, -1.25387 )
+
+[node name="polygons5 2" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8145, 0.19667, -1.25387 )
+
+[node name="polygons53" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0362, 0.19667, -1.25387 )
+
+[node name="polygons3" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.891, 0.19667, 1.89654 )
+
+[node name="polygons6" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1127, 0.19667, 1.89654 )
+
+[node name="polygons5" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8145, 0.19667, 1.89654 )
+
+[node name="polygons6 4" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0362, 0.19667, 1.89654 )
+
+[node name="polygons4" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.891, 0.19667, -2.31801 )
+
+[node name="polygons6 3" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1127, 0.19667, -2.31801 )
+
+[node name="polygons5 3" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8145, 0.19667, -2.31801 )
+
+[node name="polygons54" parent="world/terrain/resources/polygons" instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0362, 0.19667, -2.31801 )
+
+[node name="voxels" type="Spatial" parent="world/terrain/resources"]
+
+editor/display_folded = true
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="voxels" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0485, 0, -12.74 )
+
+[node name="voxels1" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49886, 0, -12.9239 )
+
+[node name="voxels2" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49886, 0, -13.4916 )
+
+[node name="voxels3" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73312, 0, -12.74 )
+
+[node name="voxels4" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44829, 0, -12.3472 )
+
+[node name="voxels5" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2003, 0, -13.6419 )
+
+[node name="camera" parent="world" instance=ExtResource( 9 )]
 
 transform/local = Transform( -0.0761757, 0, -0.997095, 0, 1, 0, 0.997095, 0, -0.0761757, 0, 0, 0 )
 

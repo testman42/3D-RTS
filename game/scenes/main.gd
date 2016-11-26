@@ -1,7 +1,8 @@
 extends Node
 
 
-var placing_building = 0
+export var placing_building = 0
+export var just_selected = 0
 var rotating_building = 0
 var building_node
 var building_location
@@ -11,9 +12,12 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event.is_action("order"):
-		for unit in get_tree().get_nodes_in_group("selected"):
+	var selected_group = get_tree().get_nodes_in_group("selected")
+	if  selected_group.size() > 0 and event.is_action("order") and !just_selected:
+		for unit in selected_group:
 			unit.move(mouse2coords(event))
+	just_selected = 0
+			
 	if placing_building:
 		building_node.set_translation(mouse2coords(event))
 		
@@ -22,6 +26,7 @@ func _input(event):
 			building_location = mouse2coords(event)
 		placing_building = 0
 		rotating_building = 1
+		get_node("UI").hide_rect()
 		
 	if rotating_building and event.type==InputEvent.MOUSE_MOTION:
 		building_node.look_at(mouse2coords(event), Vector3(0,1,0))
@@ -39,6 +44,11 @@ func _input(event):
 	if event.is_action("cancel_selection"):
 		for unit in get_tree().get_nodes_in_group("selected"):
 			unit.deselect()
+			
+	if event.is_action("focus_home"):
+		#already placed Cone of Construction is our home for now
+		var home_location = get_node("world/actors/constructions/cone_of_construction").get_translation()
+		get_node("world/camera").set_translation(home_location)
 		
 func mouse2coords(event):
 	var near = camera.project_ray_origin(event.pos)
@@ -63,4 +73,5 @@ func spawn_unit(nodepath):
 	var unit_scene = load(nodepath)
 	var unit = unit_scene.instance()
 	get_node("world/actors/units").add_child(unit)
+	unit.add_to_group("units")
 	unit.set_translation(get_node("world/actors/constructions").get_node("gear_of_generating").get_translation())
