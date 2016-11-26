@@ -34,6 +34,8 @@ func _input(event):
 	if rotating_building and event.is_action_released("confirm_placement"):
 		building_node.add_to_group("buildings")
 		get_node("UI/HUD/build_menu").update_build_options()
+		if "tetrahedron_of_transmutation" in building_node.get_name():
+			building_node.spawn_collector()
 		placing_building = 0
 		rotating_building = 0
 		building_location = 0
@@ -69,9 +71,13 @@ func cancel_building_placement():
 	placing_building = 0
 	rotating_building = 0
 	
-func spawn_unit(nodepath):
+func spawn_unit(nodepath, location = 0):
 	var unit_scene = load(nodepath)
 	var unit = unit_scene.instance()
 	get_node("world/actors/units").add_child(unit)
 	unit.add_to_group("units")
-	unit.set_translation(get_node("world/actors/constructions").get_node("gear_of_generating").get_translation())
+	if typeof(location) == TYPE_VECTOR3 :
+		unit.set_translation(location)
+	else:
+		unit.set_translation(get_node("/root/game/world/actors/constructions/gear_of_generating").get_translation())
+	

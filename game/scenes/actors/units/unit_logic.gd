@@ -29,16 +29,6 @@ func _ready():
 	add_child(line_timer)
 	get_node("/root/game/world").add_child(im)
 
-#func _on_body_input_event( camera, event, click_pos, click_normal, shape_idx ):
-#	if (event.is_action_pressed("select")):
-#		if (not selected):
-#			get_node("mesh").set_material_override(gray_mat)
-#			add_to_group("selected")
-#		else:
-#			get_node("mesh").set_material_override(null)
-#			remove_from_group("selected")
-#		selected = not selected
-
 func select():
 	add_to_group("selected")
 	get_node("mesh").set_material_override(gray_mat)

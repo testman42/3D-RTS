@@ -71,6 +71,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="constructions" type="Spatial" parent="world/actors"]
 
+editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings" ] instance=ExtResource( 4 )]
@@ -109,7 +110,6 @@ material/0 = SubResource( 1 )
 
 [node name="terrain" type="Spatial" parent="world"]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="map" parent="world/terrain" instance=ExtResource( 6 )]
@@ -206,7 +206,6 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0362, 0.19667, -2.318
 
 [node name="voxels" type="Spatial" parent="world/terrain/resources"]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="voxels" parent="world/terrain/resources/voxels" instance=ExtResource( 8 )]
