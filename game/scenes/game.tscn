@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=1]
 
-[ext_resource path="res://game/scenes/main.gd" type="Script" id=1]
+[ext_resource path="res://game/scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://game/scripts/UI.gd" type="Script" id=2]
-[ext_resource path="res://game/scenes/UI/HUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://game/scenes/actors/constructions/cone_of_construction.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/scenes/UI/HUD/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/scenes/actors/constructions/cone_of_construction/cone_of_construction.tscn" type="PackedScene" id=4]
 [ext_resource path="res://data/models/mesh/pyramid.msh" type="Mesh" id=5]
 [ext_resource path="res://game/scenes/maps/map1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/scenes/actors/misc/polygons.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game/scenes/actors/misc/voxels.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/scenes/UI/camera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/scenes/actors/misc/resources/polygons/polygons.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/scenes/actors/misc/resources/voxels/voxels.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/scenes/UI/camera/camera.tscn" type="PackedScene" id=9]
 
 [sub_resource type="FixedMaterial" id=1]
 
@@ -55,7 +55,6 @@ just_selected = 0
 
 [node name="UI" type="Node2D" parent="."]
 
-editor/display_folded = true
 script/script = ExtResource( 2 )
 draw = 0
 
@@ -71,7 +70,6 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="constructions" type="Spatial" parent="world/actors"]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings" ] instance=ExtResource( 4 )]
