@@ -1,6 +1,5 @@
 extends Spatial
 
-# Member variables
 const SPEED = 4.0
 
 var begin = Vector3()

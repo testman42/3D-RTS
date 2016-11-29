@@ -87,7 +87,6 @@ func update_build_options():
 		get_node("type_select").add_child(units_tab)
 	
 
-
 func on_rr_pressed():
 	get_node("/root/game").start_placing_building("res://game/scenes/actors/constructions/rectangular_reactor/rectangular_reactor.tscn")
 	

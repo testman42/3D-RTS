@@ -4,7 +4,6 @@
 [ext_resource path="res://data/models/mesh/cube.msh" type="Mesh" id=2]
 [ext_resource path="res://data/models/mesh/cylinder.msh" type="Mesh" id=3]
 
-
 [sub_resource type="FixedMaterial" id=1]
 
 flags/visible = true
@@ -294,7 +293,5 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.220957, 0.174002 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
-
-[connection signal="input_event" from="body" to="." method="_on_body_input_event"]
 
 

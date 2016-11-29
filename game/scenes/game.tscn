@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://game/scripts/main.gd" type="Script" id=1]
-[ext_resource path="res://game/scripts/UI.gd" type="Script" id=2]
+[ext_resource path="res://game/scripts/input.gd" type="Script" id=2]
 [ext_resource path="res://game/scenes/UI/HUD/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/scenes/actors/constructions/cone_of_construction/cone_of_construction.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/scenes/maps/map1.tscn" type="PackedScene" id=5]
@@ -20,7 +20,10 @@ rotating_camera = 0
 [node name="UI" type="Node2D" parent="."]
 
 script/script = ExtResource( 2 )
-draw = 0
+placing_building = 0
+just_selected = 0
+fast_move = 0
+rotating_camera = 0
 
 [node name="HUD" parent="UI" instance=ExtResource( 3 )]
 

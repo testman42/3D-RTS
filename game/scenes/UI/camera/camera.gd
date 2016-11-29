@@ -1,7 +1,6 @@
 extends Position3D
 
 var camera_speed = 0.003
-var rotation_changed = 0
 export var camrot = 0.0
 export var direction = Vector3()
 onready var camera_movement_triggers
@@ -30,56 +29,53 @@ func stop_camera():
 
 func move_camera():
 	translate(direction*camera_speed)
-	if rotation_changed:
-		rotate_camera()
-		rotation_changed = 0
 	
-func rotate_camera():
+func rotate_camera(degrees):
+	camrot += degrees
 	set_rotation(Vector3(0, camrot, 0))
 
+func change_direction(x,z):
+	direction.x += x
+	direction.z += z
 
 func mouse_enter_top():
 	if !game.fast_move and !game.rotating_camera:
-		direction.z = -90
+		change_direction(0,-90)
 		start_moving_camera()
 
 func mouse_enter_bottom():
 	if !game.fast_move and !game.rotating_camera:
-		direction.z = 90
+		change_direction(0,90)
 		start_moving_camera()
 
 func mouse_enter_left():
 	if !game.fast_move and !game.rotating_camera:
-		direction.x = -90
+		change_direction(-90,0)
 		start_moving_camera()
 
 func mouse_enter_right():
 	if !game.fast_move and !game.rotating_camera:
-		direction.x = 90
+		change_direction(90,0)
 		start_moving_camera()
 
 func mouse_enter_top_right():
 	if !game.fast_move and !game.rotating_camera:
-		direction.x = 90
-		direction.z = -90
+		change_direction(90,-90)
 		start_moving_camera()
 
 func mouse_enter_top_left():
 	if !game.fast_move and !game.rotating_camera:
-		direction.x = -90
-		direction.z = -90
+		change_direction(-90,-90)
 		start_moving_camera()
 
 func mouse_enter_bottom_right():
 	if !game.fast_move and !game.rotating_camera:
-		direction.x = 90
-		direction.z = 90
+		change_direction(90,90)
 		start_moving_camera()
 	
 func mouse_enter_bottom_left():
 	if !game.fast_move and !game.rotating_camera:
-		direction.x = -90
-		direction.z = 90
+		change_direction(-90,90)
 		start_moving_camera()
 
 
