@@ -4,6 +4,7 @@ export var placing_building = 0
 export var just_selected = 0
 export var fast_move = 0
 export var rotating_camera = 0
+var destination_lines_enabled = 1
 var rotating_building = 0
 var building_node
 var building_location
@@ -29,7 +30,9 @@ func cancel_building_placement():
 	
 func move_units_group_to(group, coordinates):
 		for unit in group:
-			unit.move(coordinates)
+			unit.set_destination(coordinates)
+			if destination_lines_enabled:
+				unit.show_destination_line(1)
 
 func deselect_all_selected_units():
 	for unit in get_tree().get_nodes_in_group("selected"):
@@ -49,4 +52,6 @@ func spawn_unit(nodepath, location = 0):
 		unit.set_translation(location)
 	else:
 		unit.set_translation(get_node("/root/game/world/actors/constructions/gear_of_generating").get_translation())
+	
+	
 	

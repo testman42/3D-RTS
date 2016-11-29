@@ -96,6 +96,7 @@ func _input(event):
 					#y check in new line for code readablity
 					if ( ( selecting_start.y > y and y > event.pos.y) or (selecting_start.y < y and y < event.pos.y )):
 						unit.select()
+						unit.show_destination_line(1)
 						just_selected = 1
 			selecting_start = Vector2(0,0)
 		

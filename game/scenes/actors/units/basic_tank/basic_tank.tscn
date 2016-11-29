@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://game/scripts/unit_logic.gd" type="Script" id=1]
+[ext_resource path="res://game/scenes/actors/units/basic_tank/basic_tank.gd" type="Script" id=1]
 [ext_resource path="res://data/models/mesh/cube.msh" type="Mesh" id=2]
-
 
 [sub_resource type="FixedMaterial" id=1]
 

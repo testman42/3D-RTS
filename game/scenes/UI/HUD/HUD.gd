@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 export var draw = 0
 var rect_color = Color(1,1,1)
 var corner1
@@ -9,7 +8,6 @@ var corner2
 var corner3
 var corner4
 
-var show_destination_lines = 1
 
 func _ready():
 	pass
