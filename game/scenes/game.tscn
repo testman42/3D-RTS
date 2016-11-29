@@ -13,7 +13,6 @@
 
 script/script = ExtResource( 1 )
 placing_building = 0
-just_selected = 0
 fast_move = 0
 rotating_camera = 0
 

@@ -9,8 +9,8 @@ export var rotating_camera = 0
 var rotating_building = 0
 var building_node
 var building_location
+var fast_move_start = Vector2()
 var selecting_start = Vector2(0,0)
-var current_state = ""
 onready var game = get_node("/root/game")
 onready var camera_base = get_node("/root/game/world/camera")
 
@@ -18,6 +18,32 @@ func _ready():
 	set_process_input(true)
 	
 func _input(event):
+	#UI functionality
+	if event.is_action("focus_home"):
+		game.focus_on_home()
+		
+	if event.is_action_pressed("camera_rotate"):
+		rotating_camera = 1
+		camera_base.start_moving_camera()
+	if event.is_action_released("camera_rotate"):
+		rotating_camera = 0
+		camera_base.stop_camera()
+		
+	if event.is_action_pressed("camera_fast_move"):
+		fast_move = 1
+		fast_move_start = event.pos
+		camera_base.start_moving_camera()
+		
+	if event.is_action_released("camera_fast_move"):
+		fast_move = 0
+		camera_base.stop_camera()
+		
+	if rotating_camera and event.type == InputEvent.MOUSE_MOTION:
+		camera_base.rotate_camera(event.relative_x*0.005)
+		
+	if fast_move and event.type == InputEvent.MOUSE_MOTION:
+		camera_base.change_direction(event.relative_x, event.relative_y)
+	
 	#construction placement 
 	if placing_building:
 		game.building_node.set_translation(mouse2coords(event))
@@ -42,32 +68,7 @@ func _input(event):
 		building_location = 0
 		
 	if placing_building and event.is_action("cancel_placement"):
-		cancel_building_placement()
-		
-	#UI functionality
-	if event.is_action("focus_home"):
-		game.focus_on_home()
-		
-	if event.is_action_pressed("camera_rotate"):
-		rotating_camera = 1
-		camera_base.start_moving_camera()
-	if event.is_action_released("camera_rotate"):
-		rotating_camera = 0
-		camera_base.stop_camera()
-		
-	if event.is_action_pressed("camera_fast_move"):
-		fast_move = 1
-		camera_base.start_moving_camera()
-		
-	if event.is_action_released("camera_fast_move"):
-		fast_move = 0
-		camera_base.stop_camera()
-		
-	if rotating_camera and event.type == InputEvent.MOUSE_MOTION:
-		camera_base.rotate_camera(event.relative_x*0.005)
-		
-	if fast_move and event.type == InputEvent.MOUSE_MOTION:
-		camera_base.change_direction(event.relative_x, event.relative_y)
+		game.cancel_building_placement()
 	
 	#unit selection handling
 	var selected_group = get_tree().get_nodes_in_group("selected")
@@ -75,8 +76,9 @@ func _input(event):
 		game.move_units_group_to(selected_group, mouse2coords(event))
 	just_selected = 0
 	
-	if event.is_action("cancel_selection"):
-		game.deselect_all_selected_units()
+	if event.is_action_released("cancel_selection"):
+		if fast_move_start.distance_to(event.pos) < 3:
+			game.deselect_all_selected_units()
 	
 	if (event.is_action_pressed("select")) and !rotating_building:
 		selecting_start = event.pos

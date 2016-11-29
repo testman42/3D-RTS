@@ -1,14 +1,11 @@
 extends Node
 
 export var placing_building = 0
-export var just_selected = 0
 export var fast_move = 0
 export var rotating_camera = 0
 var destination_lines_enabled = 1
 var rotating_building = 0
 var building_node
-var building_location
-var selecting_start = Vector2(0,0)
 onready var camera_base = get_node("/root/game/world/camera")
 
 func _ready():
@@ -48,8 +45,10 @@ func spawn_unit(nodepath, location = 0):
 	var unit = unit_scene.instance()
 	get_node("world/actors/units").add_child(unit)
 	unit.add_to_group("units")
+	#check if location is provided, otherwise spawn at Gear of Generating
 	if typeof(location) == TYPE_VECTOR3 :
 		unit.set_translation(location)
+		unit._ready()
 	else:
 		unit.set_translation(get_node("/root/game/world/actors/constructions/gear_of_generating").get_translation())
 	
