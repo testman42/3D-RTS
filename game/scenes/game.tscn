@@ -14,6 +14,8 @@
 script/script = ExtResource( 1 )
 placing_building = 0
 just_selected = 0
+fast_move = 0
+rotating_camera = 0
 
 [node name="UI" type="Node2D" parent="."]
 
@@ -167,5 +169,7 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2003, 0, -13.6419 )
 [node name="camera" parent="world" instance=ExtResource( 8 )]
 
 transform/local = Transform( -0.0761757, 0, -0.997095, 0, 1, 0, 0.997095, 0, -0.0761757, 0, 0, 0 )
+camrot = 0.0
+direction = Vector3( 0, 0, 0 )
 
 

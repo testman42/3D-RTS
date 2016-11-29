@@ -1,6 +1,7 @@
 extends Node2D
 
 export var draw = 0
+var rect_color = Color(1,1,1)
 var corner1
 var corner2
 var corner3
@@ -14,10 +15,10 @@ func _process(delta):
 
 func _draw():
 	if draw:
-		draw_line( corner1, corner2, Color(1,1,1) )
-		draw_line( corner2, corner3, Color(1,1,1) )
-		draw_line( corner3, corner4, Color(1,1,1) )
-		draw_line( corner4, corner1, Color(1,1,1) )
+		draw_line( corner1, corner2, rect_color )
+		draw_line( corner2, corner3, rect_color )
+		draw_line( corner3, corner4, rect_color )
+		draw_line( corner4, corner1, rect_color )
 	
 func draw_rect(start_corner,end_corner):
 	corner1 = start_corner
@@ -29,4 +30,3 @@ func draw_rect(start_corner,end_corner):
 
 func hide_rect():
 	draw = 0
-	pass
