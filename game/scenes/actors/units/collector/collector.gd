@@ -10,7 +10,6 @@ func _ready():
 	
 func start_collecting():
 	add_to_group("automatic_collector")
-	#TODO: make this actually work
 	var closest = find_closest_resource()
 	set_destination(closest.get_translation())
 	

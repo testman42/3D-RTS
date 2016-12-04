@@ -74,7 +74,7 @@ func update_build_options():
 			units_grid.get_node("collector").show()
 			units_grid.get_node("basic_tank").show()
 		if requirements[4] == "oo":
-			units_grid.get_node("big_tank").show()
+			units_grid.get_node("serious_tank").show()
 			#units_grid.get_node("gfm").show()
 	
 	var current_tabs = get_node("type_select").get_children()
@@ -108,5 +108,5 @@ func on_collector_pressed():
 func on_basic_tank_pressed():
 	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/basic_tank/basic_tank.tscn")
 	
-func on_big_tank_pressed():
-	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/big_tank/big_tank.tscn")
+func on_serious_tank_pressed():
+	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/serious_tank/serious_tank.tscn")

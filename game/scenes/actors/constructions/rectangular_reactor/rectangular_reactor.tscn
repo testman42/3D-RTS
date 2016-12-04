@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://data/models/mesh/cube.msh" type="Mesh" id=1]
+[ext_resource path="res://game/scenes/actors/constructions/rectangular_reactor/rectangular_reactor.gd" type="Script" id=1]
+[ext_resource path="res://data/models/mesh/cube.msh" type="Mesh" id=2]
 
-[sub_resource type="FixedMaterial" id=1]
+[sub_resource type="FixedMaterial" id=2]
 
 flags/visible = true
 flags/double_sided = false
@@ -39,13 +40,18 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 
 extents = Vector3( 1, 1, 1 )
 
 [node name="rectangular_reactor" type="Spatial"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script/script = ExtResource( 1 )
+health = 0
+state = ""
+build_radius = 0
+power = 0
 
 [node name="mesh" type="MeshInstance" parent="."]
 
@@ -53,7 +59,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( -1.62921e-07, 0, 1.5, 0, 0.5, 0, -1, 0, -2.44381e-07, 0, 0.5, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 1 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -65,7 +71,7 @@ geometry/depth_scale = false
 geometry/visible_in_all_rooms = false
 geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
-mesh/mesh = ExtResource( 1 )
+mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 
@@ -76,7 +82,7 @@ transform/local = Transform( -1.62921e-07, 0, 1.5, 0, 0.5, 0, -1, 0, -2.44381e-0
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -101,7 +107,7 @@ damp_override/angular = -1.0
 [node name="collision" type="CollisionShape" parent="body"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://data/models/mesh/ball.msh" type="Mesh" id=1]
+[ext_resource path="res://game/scenes/actors/constructions/orb_of_observation/orb_of_observation.gd" type="Script" id=1]
+[ext_resource path="res://data/models/mesh/ball.msh" type="Mesh" id=2]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -9,6 +10,11 @@ radius = 1.0
 [node name="orb_of_observation" type="Spatial"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script/script = ExtResource( 1 )
+health = 0
+state = ""
+build_radius = 0
+power = 0
 
 [node name="mesh" type="MeshInstance" parent="."]
 
@@ -28,7 +34,7 @@ geometry/depth_scale = false
 geometry/visible_in_all_rooms = false
 geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
-mesh/mesh = ExtResource( 1 )
+mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 

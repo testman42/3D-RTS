@@ -2,15 +2,15 @@ extends Node
 
 # input handling should be handled so that it firstly checks if input was meant for HUD.
 # if not, then relay input to game.
-export var placing_building = 0
-export var just_selected = 0
-export var fast_move = 0
-export var rotating_camera = 0
+var placing_building = 0
+var just_selected = 0
 var rotating_building = 0
 var building_node
 var building_location
 var fast_move_start = Vector2()
 var selecting_start = Vector2(0,0)
+export var fast_move = 0
+export var rotating_camera = 0
 onready var game = get_node("/root/game")
 onready var camera_base = get_node("/root/game/world/camera")
 
@@ -45,9 +45,7 @@ func _input(event):
 		camera_base.change_direction(event.relative_x, event.relative_y)
 	
 	#construction placement 
-	if placing_building:
-		game.building_node.set_translation(mouse2coords(event))
-		
+			
 	if placing_building and event.is_action_pressed("confirm_placement"):
 		if !building_location:
 			building_location = mouse2coords(event)
@@ -56,20 +54,24 @@ func _input(event):
 		
 	if rotating_building and event.type==InputEvent.MOUSE_MOTION:
 		#causes irrelevant error bceuse of one pixel
-		game.building_node.look_at(mouse2coords(event), Vector3(0,1,0))
+		building_node.look_at(mouse2coords(event), Vector3(0,1,0))
 		
 	if rotating_building and event.is_action_released("confirm_placement"):
-		game.building_node.add_to_group("buildings")
+		building_node.add_to_group("buildings")
 		game.get_node("UI/HUD/build_menu").update_build_options()
-		if "tetrahedron_of_transmutation" in game.building_node.get_name():
-			game.building_node.spawn_collector()
+		building_node.place()
 		placing_building = 0
 		rotating_building = 0
 		building_location = 0
 		
 	if placing_building and event.is_action("cancel_placement"):
 		game.cancel_building_placement()
+		placing_building = 0
+		rotating_building = 0
 	
+	if placing_building:
+		building_node.set_translation(mouse2coords(event))
+		
 	#unit selection handling
 	var selected_group = get_tree().get_nodes_in_group("selected")
 	if  selected_group.size() > 0 and event.is_action("order") and !just_selected:

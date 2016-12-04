@@ -3,7 +3,6 @@
 [ext_resource path="res://game/scenes/actors/constructions/tetrahedron_of_transmutation/tetrahedron_of_transmutation.gd" type="Script" id=1]
 [ext_resource path="res://data/models/mesh/tetrahedron.msh" type="Mesh" id=2]
 
-
 [sub_resource type="FixedMaterial" id=1]
 
 flags/visible = true
@@ -49,6 +48,10 @@ extents = Vector3( 1, 1, 1 )
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script/script = ExtResource( 1 )
+health = 0
+state = ""
+build_radius = 0
+power = 0
 
 [node name="mesh" type="MeshInstance" parent="."]
 

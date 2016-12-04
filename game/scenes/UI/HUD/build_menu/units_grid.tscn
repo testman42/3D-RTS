@@ -48,7 +48,7 @@ shortcut = null
 text = "Basic"
 flat = false
 
-[node name="big_tank" type="Button" parent="."]
+[node name="serious_tank" type="Button" parent="."]
 
 visibility/visible = false
 focus/ignore_mouse = false
@@ -62,7 +62,7 @@ margin/bottom = 20.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Big"
+text = "Serious"
 flat = false
 
 [node name="gfm" type="Button" parent="."]
