@@ -1,14 +1,14 @@
 extends "res://game/scripts/construction.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 func _ready():
-	pass
+	health = 200
+	build_radius = 6
+	power = -10
+	default_material.set_parameter(FixedMaterial.PARAM_DIFFUSE, Color(0.847656,0.736732,0.403961))
 
 func place():
 	add_to_group("buildings")
+	add_to_group("available_build_area")
 	spawn_collector()
 
 func spawn_collector():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://data/models/mesh/cone.msh" type="Mesh" id=1]
+[ext_resource path="res://game/scenes/actors/constructions/cone_of_construction/cone_of_construction.gd" type="Script" id=1]
+[ext_resource path="res://data/models/mesh/cone.msh" type="Mesh" id=2]
 
 [sub_resource type="FixedMaterial" id=1]
 
@@ -46,6 +47,11 @@ extents = Vector3( 1, 1, 1 )
 [node name="cone_of_construction" type="Spatial"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script/script = ExtResource( 1 )
+health = 0
+state = ""
+build_radius = 0
+power = 0
 
 [node name="mesh" type="MeshInstance" parent="."]
 
@@ -65,7 +71,7 @@ geometry/depth_scale = false
 geometry/visible_in_all_rooms = false
 geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
-mesh/mesh = ExtResource( 1 )
+mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 

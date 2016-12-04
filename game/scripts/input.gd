@@ -7,6 +7,7 @@ var just_selected = 0
 var rotating_building = 0
 var building_node
 var building_location
+var can_build = 0
 var fast_move_start = Vector2()
 var selecting_start = Vector2(0,0)
 export var fast_move = 0
@@ -45,12 +46,11 @@ func _input(event):
 		camera_base.change_direction(event.relative_x, event.relative_y)
 	
 	#construction placement 
-			
 	if placing_building and event.is_action_pressed("confirm_placement"):
-		if !building_location:
+		if !building_location and can_build:
 			building_location = mouse2coords(event)
-		placing_building = 0
-		rotating_building = 1
+			placing_building = 0
+			rotating_building = 1
 		
 	if rotating_building and event.type==InputEvent.MOUSE_MOTION:
 		#causes irrelevant error bceuse of one pixel
@@ -71,6 +71,7 @@ func _input(event):
 	
 	if placing_building:
 		building_node.set_translation(mouse2coords(event))
+		can_build = building_node.check_build_area()
 		
 	#unit selection handling
 	var selected_group = get_tree().get_nodes_in_group("selected")
@@ -82,7 +83,7 @@ func _input(event):
 		if fast_move_start.distance_to(event.pos) < 3:
 			game.deselect_all_selected_units()
 	
-	if (event.is_action_pressed("select")) and !rotating_building:
+	if (event.is_action_pressed("select")) and !rotating_building and !placing_building:
 		selecting_start = event.pos
 	if selecting_start.x > 0:
 		game.get_node("UI/HUD").draw_rect(selecting_start, event.pos)

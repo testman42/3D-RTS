@@ -3,7 +3,7 @@
 [ext_resource path="res://game/scenes/actors/constructions/rectangular_reactor/rectangular_reactor.gd" type="Script" id=1]
 [ext_resource path="res://data/models/mesh/cube.msh" type="Mesh" id=2]
 
-[sub_resource type="FixedMaterial" id=2]
+[sub_resource type="FixedMaterial" id=1]
 
 flags/visible = true
 flags/double_sided = false
@@ -20,7 +20,7 @@ fixed_flags/use_color_array = false
 fixed_flags/use_point_size = false
 fixed_flags/discard_alpha = false
 fixed_flags/use_xy_normalmap = false
-params/diffuse = Color( 0.392908, 0.295258, 0.585938, 1 )
+params/diffuse = Color( 0.585938, 0.169373, 0.169373, 1 )
 params/specular = Color( 0, 0, 0, 1 )
 params/emission = Color( 0, 0, 0, 1 )
 params/specular_exp = 40
@@ -40,7 +40,7 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=2]
 
 extents = Vector3( 1, 1, 1 )
 
@@ -59,7 +59,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( -1.62921e-07, 0, 1.5, 0, 0.5, 0, -1, 0, -2.44381e-07, 0, 0.5, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 2 )
+geometry/material_override = SubResource( 1 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -82,7 +82,7 @@ transform/local = Transform( -1.62921e-07, 0, 1.5, 0, 0.5, 0, -1, 0, -2.44381e-0
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -107,7 +107,7 @@ damp_override/angular = -1.0
 [node name="collision" type="CollisionShape" parent="body"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 

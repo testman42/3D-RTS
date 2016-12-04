@@ -42,9 +42,9 @@ func spawn_unit(nodepath, location = 0):
 	#check if location is provided, otherwise spawn at Gear of Generating
 	if typeof(location) == TYPE_VECTOR3 :
 		unit.set_translation(location)
-		unit._ready()
 	else:
 		unit.set_translation(get_node("/root/game/world/actors/constructions/gear_of_generating").get_translation())
+	unit._ready()
 	
 	
 	
