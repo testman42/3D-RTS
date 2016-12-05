@@ -3,6 +3,7 @@ extends "res://game/scripts/construction.gd"
 func _ready():
 	health = 200
 	build_radius = 6
+	building_area = 2.5
 	power = -10
 	default_material.set_parameter(FixedMaterial.PARAM_DIFFUSE, Color(0.847656,0.736732,0.403961))
 

@@ -39,6 +39,8 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="cone_of_construction" parent="world/actors/constructions" groups=[ "buildings", "available_build_area" ] instance=ExtResource( 5 )]
 
+building_area = 0
+
 [node name="units" type="Spatial" parent="world/actors"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )

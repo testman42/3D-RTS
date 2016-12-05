@@ -3,7 +3,9 @@ extends Spatial
 export var health = 0
 export var state = "" #can be "placing", "rotating" and "placed", maybe add "destroyed" to keep rubble
 export var build_radius = 0
+export var building_area = 0
 export var power = 0 #+int gives power, -int consumes power, 0 does not affect power
+var max_health = 0
 var buildings = 0
 var default_material = FixedMaterial.new()
 var red = FixedMaterial.new()
@@ -37,6 +39,10 @@ func check_build_area():
 	var location = Vector2(get_translation().x, get_translation().z)
 	for building in buildings:
 		var building_location = Vector2(building.get_translation().x, building.get_translation().z)
+		if location.distance_to(building_location) < building_area+building.building_area:
+			can_build = 0
+			paint_red()
+			break
 		if location.distance_to(building_location) < building.build_radius:
 			can_build = 1
 			get_node("mesh").set_material_override(default_material)

@@ -88,25 +88,30 @@ func _input(event):
 	if selecting_start.x > 0:
 		game.get_node("UI/HUD").draw_rect(selecting_start, event.pos)
 		if event.is_action_released("select"):
-			var camera = camera_base.get_node("Camera")
-			game.get_node("UI/HUD").hide_rect()
-			for unit in game.get_node("world/actors/units").get_children():
-				var loc_on_screen = camera.unproject_position(unit.get_translation())
-				var x = loc_on_screen.x
-				var y = loc_on_screen.y
-				if selecting_start.distance_to(event.pos) < 3:
+			if selecting_start.distance_to(event.pos) > 3:
+				var camera = camera_base.get_node("Camera")
+				for unit in game.get_node("world/actors/units").get_children():
+					var loc_on_screen = camera.unproject_position(unit.get_translation())
 					if loc_on_screen.distance_to(event.pos) < 20:
 						unit.select()
-				elif ( (selecting_start.x > x and x > event.pos.x) or (selecting_start.x < x and x < event.pos.x )):
-					#y check in new line for code readablity
-					if ( ( selecting_start.y > y and y > event.pos.y) or (selecting_start.y < y and y < event.pos.y )):
+					if is_point_in_rectangle(loc_on_screen, selecting_start, event.pos):
 						unit.select()
 						unit.show_destination_line(1)
 						just_selected = 1
 			selecting_start = Vector2(0,0)
+			game.get_node("UI/HUD").hide_rect()
 		
 func mouse2coords(event):
 	var near = camera_base.get_node("Camera").project_ray_origin(event.pos)
 	var far = near + camera_base.get_node("Camera").project_ray_normal(event.pos)*100
-	var click = game.get_node("world/terrain/map/navigation").get_closest_point_to_segment(near, far)
-	return click
+	var point = game.get_node("world/terrain/map/navigation").get_closest_point_to_segment(near, far)
+	return point
+	
+func is_point_in_rectangle(point, rect_start, rect_end):
+	var x = point.x
+	var y = point.y
+	if ( (rect_start.x > x and x > rect_end.x) or (rect_start.x  < x and x < rect_end.x )):
+		if ( ( rect_start.y > y and y > rect_end.y) or (rect_start.y < y and y < rect_end.y )):
+			return true
+	return false
+	
