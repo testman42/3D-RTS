@@ -5,6 +5,7 @@ export var state = "" #can be "placing", "rotating" and "placed", maybe add "des
 export var build_radius = 0
 export var building_area = 0
 export var power = 0 #+int gives power, -int consumes power, 0 does not affect power
+export var price = 0
 var max_health = 0
 var buildings = 0
 var default_material = FixedMaterial.new()

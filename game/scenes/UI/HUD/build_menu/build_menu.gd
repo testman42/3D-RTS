@@ -2,10 +2,12 @@ extends Node2D
 
 onready var buildings_grid_scene
 onready var units_grid_scene
+onready var build_info
 
 func _ready():
 	buildings_grid_scene = preload("res://game/scenes/UI/HUD/build_menu/buildings_grid.tscn")
 	units_grid_scene = preload("res://game/scenes/UI/HUD/build_menu/units_grid.tscn")
+	build_info = get_node("/root/game/UI/HUD/build_info/text")
 	update_build_options()
 
 func update_build_options():
@@ -41,9 +43,7 @@ func update_build_options():
 		var buildings_grid = buildings_grid_scene.instance()
 		number_tab.add_child(buildings_grid)
 		buildings_tab.add_child(number_tab)
-	
-		for child in buildings_grid.get_children():
-			child.connect("pressed", self, "on_"+child.get_name()+"_pressed")
+		connect_signals(buildings_grid)
 
 		# building hierarchy
 		if requirements[0] == "cc":
@@ -65,9 +65,7 @@ func update_build_options():
 		var units_grid = units_grid_scene.instance()
 		number_tab.add_child(units_grid)
 		units_tab.add_child(number_tab)
-		
-		for child in units_grid.get_children():
-			child.connect("pressed", self, "on_"+child.get_name()+"_pressed")
+		connect_signals(units_grid)
 	
 		#units hierarchy
 		if requirements[3] == "gg":
@@ -85,7 +83,13 @@ func update_build_options():
 		get_node("type_select").add_child(buildings_tab)
 	if requirements[3] == "gg":
 		get_node("type_select").add_child(units_tab)
-	
+
+func connect_signals(node):
+	for child in node.get_children():
+		child.connect("pressed", self, "on_"+child.get_name()+"_pressed")
+		child.connect("mouse_enter", self, "on_"+child.get_name()+"_mouse_enter")
+		child.connect("mouse_exit", self, "on_"+child.get_name()+"_mouse_exit")
+
 
 func on_rr_pressed():
 	get_node("/root/game").start_placing_building("res://game/scenes/actors/constructions/rectangular_reactor/rectangular_reactor.tscn")
@@ -110,3 +114,56 @@ func on_basic_tank_pressed():
 	
 func on_serious_tank_pressed():
 	get_node("/root/game").spawn_unit("res://game/scenes/actors/units/serious_tank/serious_tank.tscn")
+	
+
+func on_rr_mouse_enter():
+	build_info.set_text("Rectangual Reactor")
+
+func on_tt_mouse_enter():
+	build_info.set_text("Tetrahedron of transmutation")
+
+func on_gg_mouse_enter():
+	build_info.set_text("Gear of generating")
+
+func on_cc_mouse_enter():
+	build_info.set_text("Cone of construction")
+
+func on_oo_mouse_enter():
+	build_info.set_text("Orb of observation")
+
+func on_collector_mouse_enter():
+	build_info.set_text("Collector")
+	
+func on_basic_tank_mouse_enter():
+	build_info.set_text("Basic Tank")
+	
+func on_serious_tank_mouse_enter():
+	build_info.set_text("Serious Tank")
+	
+
+
+func on_rr_mouse_exit():
+	build_info.set_text("")
+
+func on_tt_mouse_exit():
+	build_info.set_text("")
+
+func on_gg_mouse_exit():
+	build_info.set_text("")
+
+func on_cc_mouse_exit():
+	build_info.set_text("")
+
+func on_oo_mouse_exit():
+	build_info.set_text("")
+
+func on_collector_mouse_exit():
+	build_info.set_text("")
+	
+func on_basic_tank_mouse_exit():
+	build_info.set_text("")
+	
+func on_serious_tank_mouse_exit():
+	build_info.set_text("")
+	
+

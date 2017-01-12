@@ -1,6 +1,6 @@
 [gd_scene format=1]
 
-[node name="selected_info" type="Node2D"]
+[node name="build_info" type="Node2D"]
 
 [node name="text" type="Label" parent="."]
 
@@ -8,10 +8,11 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+size_flags/stretch_ratio = 2.0
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 240.0
-margin/bottom = 80.0
+margin/right = 214.0
+margin/bottom = 83.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

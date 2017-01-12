@@ -56,7 +56,7 @@ func _process(delta):
 		set_transform(t)
 		
 		#draw line to destination
-		if line_timer.get_time_left() > 0:
+		if line_timer.get_time_left() > 0 and "selected" in get_groups():
 			redraw_destination_line()
 		else:
 			im.clear()
@@ -105,6 +105,19 @@ func redraw_destination_line():
 	im.add_vertex(end_point)
 	im.end()
 
+func find_closest_instance_of(object_type):
+	var best_object = 0
+	var shortest_path = 9001
+	# I really hope someone doesn't make too big map
+	for object in get_tree().get_nodes_in_group("resources"):
+		var path = navigation.get_simple_path(get_translation(), object.get_translation() , true)
+		var sum = 0
+		for vector in path:
+			sum += vector.length()
+		if sum < shortest_path:
+			shortest_path = sum
+			best_object = object
+	return best_object
 
 func select():
 	add_to_group("selected")

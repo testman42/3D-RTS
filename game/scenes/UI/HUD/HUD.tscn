@@ -17,4 +17,65 @@ transform/pos = Vector2( 786.137, 168.133 )
 
 transform/pos = Vector2( 695.254, 499.856 )
 
+[node name="build_info" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 536.234, 201.403 )
+
+[node name="text" type="Label" parent="build_info"]
+
+rect/scale = Vector2( 1.3, 1.3 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = -65.0
+margin/top = 15.0
+margin/right = 170.0
+margin/bottom = 117.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 2
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="credits" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 815.681, 45.3156 )
+
+[node name="text" type="Label" parent="credits"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="power" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 934.005, 47.8331 )
+
+[node name="text" type="Label" parent="power"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 

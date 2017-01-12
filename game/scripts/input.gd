@@ -57,6 +57,7 @@ func _input(event):
 		building_node.look_at(mouse2coords(event), Vector3(0,1,0))
 		
 	if rotating_building and event.is_action_released("confirm_placement"):
+		#building_node.add_to_group("")
 		building_node.add_to_group("buildings")
 		game.get_node("UI/HUD/build_menu").update_build_options()
 		building_node.place()

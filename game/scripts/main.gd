@@ -7,6 +7,7 @@ onready var camera_base = get_node("/root/game/world/camera")
 
 func _ready():
 	set_process_input(true)
+	focus_on_home()
 
 func start_placing_building(building_nodepath):
 	var node = load(building_nodepath)

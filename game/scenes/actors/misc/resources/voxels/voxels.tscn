@@ -3,7 +3,6 @@
 [ext_resource path="res://game/scenes/actors/misc/resources/voxels/voxels.gd" type="Script" id=1]
 [ext_resource path="res://data/models/mesh/cube.msh" type="Mesh" id=2]
 
-
 [sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 0.548513, 0.169973, 0.670711 )
@@ -12,6 +11,7 @@ extents = Vector3( 0.548513, 0.169973, 0.670711 )
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script/script = ExtResource( 1 )
+credits = 1200
 
 [node name="area" type="Area" parent="."]
 

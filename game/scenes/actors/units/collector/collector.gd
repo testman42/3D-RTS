@@ -1,28 +1,41 @@
 extends "res://game/scripts/unit.gd"
 
+var capacity = 2000
+var carrying = 0
+var collecting_timer = Timer.new()
+var closest
+export var at_resource = 0
+
 func _ready():
 	health = 200
 	speed = 3
-	
-	begin = get_global_transform()
-	begin = begin.origin
-	start_collecting()
-	
-func start_collecting():
+	collecting_timer.set_one_shot(true)
+	collecting_timer.set_wait_time(2)
+	collecting_timer.connect("timeout", self, "on_timer_end")
+	go_get_resources()
+
+func go_get_resources():
 	add_to_group("automatic_collector")
-	var closest = find_closest_resource()
+	closest = find_closest_resource()
 	set_destination(closest.get_translation())
-	
+
+func on_timer_end():
+	print(collecting_timer.get_time_left())
+	if collecting_timer.get_time_left() == 0:
+		if closest.credits_left > 0:
+			closest.pick_up()
+			carrying += closest.credits_per_part
+			collecting_timer.start()
+			print("picked up part of resource")
+		else:
+			closest.free()
+			go_get_resources()
+
+func start_collecting():
+	collecting_timer.start()
+
+func find_closest_tt():
+	return find_closest_instance_of("economy")
+
 func find_closest_resource():
-	var best_resource = 0
-	var shortest_path = 9001
-	# I really hope someone doesn't make too big map
-	for resource in get_tree().get_nodes_in_group("resources"):
-		var path = navigation.get_simple_path(get_translation(), resource.get_translation() , true)
-		var sum = 0
-		for vector in path:
-			sum += vector.length()
-		if sum < shortest_path:
-			shortest_path = sum
-			best_resource = resource
-	return best_resource
+	return find_closest_instance_of("resources")

@@ -3,12 +3,11 @@
 [ext_resource path="res://game/scenes/actors/misc/resources/polygons/polygons.gd" type="Script" id=1]
 [ext_resource path="res://data/models/mesh/pyramid.msh" type="Mesh" id=2]
 
-
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 0.360967, 0.217835, 0.473282 )
 
-[sub_resource type="FixedMaterial" id=1]
+[sub_resource type="FixedMaterial" id=2]
 
 flags/visible = true
 flags/double_sided = false
@@ -49,6 +48,9 @@ textures/shade_param_tc = 0
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script/script = ExtResource( 1 )
+credits_per_part = 0
+credits_left = 0
+credits = 600
 
 [node name="area" type="Area" parent="."]
 
@@ -57,7 +59,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 input/ray_pickable = false
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = false
 space_override = 0
@@ -76,22 +78,21 @@ collision/mask = 1
 [node name="collision" type="CollisionShape" parent="area"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="meshes" type="Spatial" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="tri1" type="MeshInstance" parent="meshes"]
+[node name="triangle1" type="MeshInstance" parent="meshes"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 0.01, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 1 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -107,13 +108,13 @@ mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 
-[node name="tri2" type="MeshInstance" parent="meshes"]
+[node name="triangle2" type="MeshInstance" parent="meshes"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 0.01, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 1 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -129,13 +130,13 @@ mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 
-[node name="tri3" type="MeshInstance" parent="meshes"]
+[node name="triangle3" type="MeshInstance" parent="meshes"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 0.01, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 1 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -151,13 +152,13 @@ mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 
-[node name="tri4" type="MeshInstance" parent="meshes"]
+[node name="triangle4" type="MeshInstance" parent="meshes"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 0.01, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 1 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -173,35 +174,13 @@ mesh/mesh = ExtResource( 2 )
 mesh/skeleton = NodePath("..")
 material/0 = null
 
-[node name="tri5" type="MeshInstance" parent="meshes"]
+[node name="triangle5" type="MeshInstance" parent="meshes"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 0.01, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 1 )
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-mesh/mesh = ExtResource( 2 )
-mesh/skeleton = NodePath("..")
-material/0 = null
-
-[node name="tri6" type="MeshInstance" parent="meshes"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.01, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0 )
-layers = 1
-geometry/visible = true
-geometry/material_override = SubResource( 1 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
