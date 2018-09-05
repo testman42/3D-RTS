@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cone.obj-4535d28cbe6b90b02cacd5c3a35ae37f.mesh"
+
+[deps]
+
+files=[ "res://.import/cone.obj-4535d28cbe6b90b02cacd5c3a35ae37f.mesh" ]
+
+source_file="res://data/models/obj/cone.obj"
+dest_files=[ "res://.import/cone.obj-4535d28cbe6b90b02cacd5c3a35ae37f.mesh", "res://.import/cone.obj-4535d28cbe6b90b02cacd5c3a35ae37f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

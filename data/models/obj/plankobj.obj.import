@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/plankobj.obj-cdd8470821cf71c252e026261b18efb5.mesh"
+
+[deps]
+
+files=[ "res://.import/plankobj.obj-cdd8470821cf71c252e026261b18efb5.mesh" ]
+
+source_file="res://data/models/obj/plankobj.obj"
+dest_files=[ "res://.import/plankobj.obj-cdd8470821cf71c252e026261b18efb5.mesh", "res://.import/plankobj.obj-cdd8470821cf71c252e026261b18efb5.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/actors/constructions/orb_of_observation/orb_of_observation.gd" type="Script" id=1]
+
+[sub_resource type="SphereMesh" id=1]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 32
+is_hemisphere = false
+
+[node name="orb_of_observation" type="Spatial"]
+script = ExtResource( 1 )
+state = ""
+build_radius = 500
+building_area = 0
+
+[node name="mesh" type="MeshInstance" parent="."]
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+

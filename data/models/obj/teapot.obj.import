@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/teapot.obj-2e50a37d82b157d14eead9c4ba701015.mesh"
+
+[deps]
+
+files=[ "res://.import/teapot.obj-2e50a37d82b157d14eead9c4ba701015.mesh" ]
+
+source_file="res://data/models/obj/teapot.obj"
+dest_files=[ "res://.import/teapot.obj-2e50a37d82b157d14eead9c4ba701015.mesh", "res://.import/teapot.obj-2e50a37d82b157d14eead9c4ba701015.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

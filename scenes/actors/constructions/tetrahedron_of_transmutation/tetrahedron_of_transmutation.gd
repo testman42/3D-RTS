@@ -1,0 +1,1 @@
+extends "res://scenes/actors/constructions/construction.gd"

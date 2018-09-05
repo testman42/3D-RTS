@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pyramid.obj-685b836ac274f6e0e211d2ef417259b6.mesh"
+
+[deps]
+
+files=[ "res://.import/pyramid.obj-685b836ac274f6e0e211d2ef417259b6.mesh" ]
+
+source_file="res://data/models/obj/pyramid.obj"
+dest_files=[ "res://.import/pyramid.obj-685b836ac274f6e0e211d2ef417259b6.mesh", "res://.import/pyramid.obj-685b836ac274f6e0e211d2ef417259b6.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
