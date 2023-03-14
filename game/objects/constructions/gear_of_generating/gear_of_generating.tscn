@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0baenhi32wac"]
+
+[ext_resource type="ArrayMesh" uid="uid://d0vpn3jlw4pxg" path="res://game/objects/constructions/gear_of_generating/gear.obj" id="1_e230u"]
+
+[node name="gear_of_generating" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.4, 0)
+mesh = ExtResource("1_e230u")

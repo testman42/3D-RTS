@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://qqvaqvhdl4n6"]
+
+[ext_resource type="Script" path="res://game/user_interface/rts_build_menu/build_menu.gd" id="1_rh6c4"]
+
+[node name="build_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rh6c4")
+
+[node name="menu" type="TabContainer" parent="."]
+layout_mode = 2
+offset_right = 281.0
+offset_bottom = 226.0
+
+[node name="Buildings" type="TabContainer" parent="menu"]
+layout_mode = 2
+
+[node name="Units" type="TabContainer" parent="menu"]
+visible = false
+layout_mode = 2
+
+[node name="Stuff" type="TabContainer" parent="menu"]
+visible = false
+layout_mode = 2

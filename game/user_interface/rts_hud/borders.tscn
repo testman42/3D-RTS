@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://ni6j7v4rou1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liokn"]
+size = Vector2(1110, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwsbk"]
+size = Vector2(20, 605)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1kbj"]
+size = Vector2(40, 40)
+
+[node name="borders" type="Node2D"]
+
+[node name="edge" type="Area2D" parent="."]
+position = Vector2(577, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge"]
+shape = SubResource("RectangleShape2D_liokn")
+
+[node name="edge2" type="Area2D" parent="."]
+position = Vector2(1149, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edge2"]
+shape = SubResource("RectangleShape2D_qwsbk")
+
+[node name="edge3" type="Area2D" parent="."]
+position = Vector2(577, 645)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="edge3"]
+shape = SubResource("RectangleShape2D_liokn")
+
+[node name="edge4" type="Area2D" parent="."]
+position = Vector2(0, 325)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="edge4"]
+shape = SubResource("RectangleShape2D_qwsbk")
+
+[node name="corner1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="corner1"]
+shape = SubResource("RectangleShape2D_v1kbj")
+
+[node name="corner2" type="Area2D" parent="."]
+position = Vector2(1151, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="corner2"]
+shape = SubResource("RectangleShape2D_v1kbj")
+
+[node name="corner3" type="Area2D" parent="."]
+position = Vector2(1152, 648)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="corner3"]
+shape = SubResource("RectangleShape2D_v1kbj")
+
+[node name="corner4" type="Area2D" parent="."]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="corner4"]
+shape = SubResource("RectangleShape2D_v1kbj")

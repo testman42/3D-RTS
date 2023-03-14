@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8n7e0sjd03co"]
+
+[ext_resource type="PackedScene" uid="uid://cok2q6mjk7nio" path="res://game/objects/basic_geometry/floor2.tscn" id="1_kiofa"]
+
+[node name="testgridmap" type="Node3D"]
+
+[node name="floor2" parent="." instance=ExtResource("1_kiofa")]

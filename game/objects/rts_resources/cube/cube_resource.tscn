@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://y0fk5gjbinl"]
+
+[ext_resource type="Script" path="res://game/objects/rts_resources/cube/cube_resource.gd" id="1_t3w27"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_itl5g"]
+
+[node name="cube_resource" type="Node3D"]
+script = ExtResource("1_t3w27")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_itl5g")

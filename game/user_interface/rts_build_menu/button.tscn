@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cec2i23drpf08"]
+
+[ext_resource type="Script" path="res://game/user_interface/rts_build_menu/button.gd" id="1_podq8"]
+
+[node name="button" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_podq8")

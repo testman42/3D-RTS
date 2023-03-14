@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3j5l6u6m24po"]
+
+[ext_resource type="PackedScene" uid="uid://rbyk34lyceq6" path="res://game/objects/vehicle_wheel/wheel.tscn" id="1_i0544"]
+[ext_resource type="Script" path="res://game/objects/vehicles/testcar/testcar.gd" id="1_ngcp8"]
+[ext_resource type="Script" path="res://game/components/driving_controls/driving_controls.gd" id="3_kur4w"]
+[ext_resource type="Script" path="res://game/components/character_guiding_logic/character_guiding_logic.gd" id="4_kncf4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cmx4"]
+size = Vector3(2, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dkjhe"]
+size = Vector3(2, 1, 4)
+
+[node name="testcar" type="VehicleBody3D"]
+script = ExtResource("1_ngcp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5cmx4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_dkjhe")
+
+[node name="wheel" parent="." instance=ExtResource("1_i0544")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 1.2)
+use_as_traction = true
+use_as_steering = true
+
+[node name="wheel2" parent="." instance=ExtResource("1_i0544")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1.2)
+use_as_traction = true
+use_as_steering = true
+
+[node name="wheel3" parent="." instance=ExtResource("1_i0544")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, -1.2)
+
+[node name="wheel4" parent="." instance=ExtResource("1_i0544")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1.2)
+
+[node name="driving_controls" type="Node" parent="."]
+script = ExtResource("3_kur4w")
+
+[node name="character_guiding_logic" type="Node" parent="."]
+script = ExtResource("4_kncf4")

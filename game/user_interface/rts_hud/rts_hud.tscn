@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cunjnpwyu3um8"]
+
+[ext_resource type="PackedScene" uid="uid://ni6j7v4rou1m" path="res://game/user_interface/rts_hud/borders.tscn" id="1_jm5tp"]
+[ext_resource type="PackedScene" uid="uid://qqvaqvhdl4n6" path="res://game/user_interface/rts_build_menu/build_menu.tscn" id="1_ko7me"]
+[ext_resource type="Script" path="res://game/user_interface/rts_hud/rts_hud.gd" id="1_sqrn1"]
+[ext_resource type="PackedScene" uid="uid://ipwv15i0td63" path="res://game/user_interface/rts_selection_rectangle/selection_rectangle.tscn" id="4_mo4bk"]
+[ext_resource type="Script" path="res://game/user_interface/rts_hud/rts_healthbar_handler.gd" id="5_h42ro"]
+[ext_resource type="PackedScene" uid="uid://c56ca8uns4mif" path="res://game/user_interface/rts_resource_count/resource_count.tscn" id="6_q5mbo"]
+
+[node name="rts_hud" type="Node2D"]
+script = ExtResource("1_sqrn1")
+
+[node name="borders" parent="." instance=ExtResource("1_jm5tp")]
+
+[node name="minimap" type="Node2D" parent="."]
+
+[node name="build_menu" parent="." instance=ExtResource("1_ko7me")]
+offset_left = 837.0
+offset_top = 77.0
+offset_right = 837.0
+offset_bottom = 77.0
+
+[node name="selection_rectangle" parent="." instance=ExtResource("4_mo4bk")]
+
+[node name="unit_healthbars" type="Node2D" parent="."]
+script = ExtResource("5_h42ro")
+
+[node name="direction_lines" type="Node2D" parent="."]
+
+[node name="resource_count" parent="." instance=ExtResource("6_q5mbo")]
+position = Vector2(979, 51)

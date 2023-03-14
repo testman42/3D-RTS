@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmyqj4sy2i2qx"]
+
+[ext_resource type="Script" path="res://game/user_interface/ammo_counter/ammo_counter.gd" id="1_p5gcw"]
+
+[node name="ammo_counter" type="Node2D"]
+script = ExtResource("1_p5gcw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 1.0
+scale = Vector2(2, 2)
+text = "100
+"
+horizontal_alignment = 1
+vertical_alignment = 1

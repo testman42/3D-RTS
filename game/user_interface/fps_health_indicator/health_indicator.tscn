@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bntb8tkjfnbtc"]
+
+[node name="health_indicator" type="Node2D"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+value = 100.0

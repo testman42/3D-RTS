@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://d38jb7givxovi"]
+
+[ext_resource type="Script" path="res://game/objects/vehicles/test_tank/test_tank.gd" id="1_0yayu"]
+[ext_resource type="PackedScene" uid="uid://rbyk34lyceq6" path="res://game/objects/vehicle_wheel/wheel.tscn" id="1_8acxg"]
+[ext_resource type="PackedScene" uid="uid://ok7xig1ptikj" path="res://game/components/camera/vehicle_camera/vehicle_camera.tscn" id="2_do8xh"]
+[ext_resource type="Script" path="res://game/components/driving_controls/driving_controls.gd" id="4_nwhkk"]
+[ext_resource type="Script" path="res://game/components/character_guiding_logic/character_guiding_logic.gd" id="5_irbqg"]
+[ext_resource type="Script" path="res://game/components/rts_selectable/selectable.gd" id="6_laqus"]
+[ext_resource type="Script" path="res://game/components/health_system/health_system.gd" id="7_0167d"]
+[ext_resource type="Script" path="res://game/components/rts_shoot/rts_shoot.gd" id="8_ul75y"]
+[ext_resource type="Script" path="res://game/components/player_team_colour/player_team_colour.gd" id="9_4qhcc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_beb58"]
+size = Vector3(2, 0.7, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tgm23"]
+size = Vector3(2, 0.7, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c84du"]
+size = Vector3(1.5, 0.4, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aaayo"]
+size = Vector3(1.5, 0.4, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lt0n3"]
+size = Vector3(0.2, 0.2, 1.5)
+
+[node name="test_tank" type="VehicleBody3D"]
+script = ExtResource("1_0yayu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_beb58")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = SubResource("BoxMesh_tgm23")
+
+[node name="wheel" parent="." instance=ExtResource("1_8acxg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.24888, -0.544383, 1.2)
+use_as_traction = true
+use_as_steering = true
+
+[node name="wheel3" parent="." instance=ExtResource("1_8acxg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.24888, -0.544383, -1.2)
+
+[node name="wheel6" parent="." instance=ExtResource("1_8acxg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.24888, -0.544383, 0)
+
+[node name="wheel2" parent="." instance=ExtResource("1_8acxg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.249, -0.544383, 1.2)
+use_as_traction = true
+use_as_steering = true
+
+[node name="wheel4" parent="." instance=ExtResource("1_8acxg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.249, -0.544383, -1.2)
+
+[node name="wheel7" parent="." instance=ExtResource("1_8acxg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.249, -0.544383, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.579042, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("BoxShape3D_c84du")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_aaayo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.64955)
+mesh = SubResource("BoxMesh_lt0n3")
+
+[node name="vehicle_camera" parent="." instance=ExtResource("2_do8xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681166, 0)
+
+[node name="driving_controls" type="Node" parent="."]
+script = ExtResource("4_nwhkk")
+
+[node name="character_guiding_logic" type="Node" parent="."]
+script = ExtResource("5_irbqg")
+
+[node name="selectable" type="Node" parent="."]
+script = ExtResource("6_laqus")
+
+[node name="health_system" type="Node" parent="."]
+script = ExtResource("7_0167d")
+
+[node name="rts_shoot" type="Node" parent="."]
+script = ExtResource("8_ul75y")
+
+[node name="team_colour" type="Node" parent="."]
+script = ExtResource("9_4qhcc")

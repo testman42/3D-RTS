@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/models/blender_exports/Material_001.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+
+resource_name = "Cube.001"
+blend_shape_mode = 1
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+surfaces/0 = {
+"aabb": AABB( -1, -1, -0.1, 2.00001, 2.00001, 0.20001 ),
+"array_data": PoolByteArray( 0, 60, 0, 60, 102, 46, 0, 60, 0, 0, 127, 0, 0, 188, 0, 188, 102, 46, 0, 60, 0, 0, 127, 0, 0, 60, 0, 188, 102, 46, 0, 60, 0, 0, 127, 0, 0, 60, 255, 187, 102, 174, 0, 60, 244, 0, 130, 0, 0, 188, 0, 60, 102, 46, 0, 60, 244, 0, 130, 0, 255, 59, 0, 60, 102, 174, 0, 60, 244, 0, 130, 0, 0, 60, 255, 187, 102, 174, 0, 60, 127, 0, 0, 0, 0, 60, 0, 60, 102, 46, 0, 60, 127, 0, 0, 0, 0, 60, 0, 188, 102, 46, 0, 60, 127, 0, 0, 0, 0, 60, 0, 60, 102, 46, 0, 60, 0, 127, 0, 0, 0, 188, 0, 60, 102, 46, 0, 60, 0, 127, 0, 0, 0, 188, 0, 60, 102, 46, 0, 60, 0, 127, 0, 0, 0, 188, 0, 60, 102, 46, 0, 60, 0, 0, 0, 0, 0, 188, 0, 188, 102, 46, 0, 60, 0, 0, 0, 0, 0, 60, 0, 188, 102, 46, 0, 60, 0, 129, 0, 0, 0, 188, 0, 188, 102, 46, 0, 60, 0, 127, 0, 0, 0, 60, 255, 187, 102, 174, 0, 60, 0, 129, 0, 0, 0, 188, 0, 60, 102, 46, 0, 60, 0, 0, 127, 0, 0, 188, 0, 188, 102, 46, 0, 60, 244, 0, 130, 0, 255, 59, 0, 60, 102, 174, 0, 60, 127, 0, 0, 0, 255, 59, 0, 60, 102, 174, 0, 60, 0, 127, 0, 0, 0, 188, 0, 188, 102, 46, 0, 60, 0, 127, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 12, 0, 13, 0, 14, 0, 16, 0, 15, 0, 0, 0, 1, 0, 17, 0, 3, 0, 4, 0, 18, 0, 6, 0, 7, 0, 19, 0, 9, 0, 10, 0, 20, 0, 12, 0, 13, 0, 13, 0, 14, 0, 15, 0, 21, 0 ),
+"blend_shape_data": [  ],
+"format": 98051,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"name": "Material_001",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 22
+}
+
+[node name="Cube_001" type="MeshInstance"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+

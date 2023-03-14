@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ok7xig1ptikj"]
+
+[ext_resource type="Script" path="res://game/components/camera/vehicle_camera/vehicle_camera.gd" id="1_lweue"]
+
+[node name="vehicle_camera" type="Marker3D"]
+script = ExtResource("1_lweue")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684812, 4.6317)

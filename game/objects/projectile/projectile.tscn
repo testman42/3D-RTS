@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://mcbcnax17x6a"]
+
+[ext_resource type="Script" path="res://game/objects/projectile/projectile.gd" id="1_5hy0r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wturb"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_m8pga"]
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 8
+
+[node name="projectile" type="CharacterBody3D"]
+script = ExtResource("1_5hy0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wturb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_m8pga")

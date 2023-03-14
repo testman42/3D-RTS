@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cftebwqcqs1l3"]
+
+[ext_resource type="Script" path="res://game/objects/constructions/tetrahedron_of_transmutation/tetrahedron_of_transmutation.gd" id="1_0rmby"]
+[ext_resource type="ArrayMesh" uid="uid://cxnh07gga34w" path="res://game/objects/constructions/tetrahedron_of_transmutation/tetrahedron.obj" id="1_uv1ux"]
+
+[node name="tetrahedron_of_transmutation" type="Node3D"]
+script = ExtResource("1_0rmby")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.7, 0)
+mesh = ExtResource("1_uv1ux")
+
+[node name="deposit_position" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72759, 0.540642, 0)

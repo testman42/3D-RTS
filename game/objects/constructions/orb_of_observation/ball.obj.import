@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b850ghxeqclx0"
+path="res://.godot/imported/ball.obj-240ba7780ef51ceebe646e0896088dba.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ball.obj-240ba7780ef51ceebe646e0896088dba.mesh"]
+
+source_file="res://game/objects/constructions/orb_of_observation/ball.obj"
+dest_files=["res://.godot/imported/ball.obj-240ba7780ef51ceebe646e0896088dba.mesh", "res://.godot/imported/ball.obj-240ba7780ef51ceebe646e0896088dba.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

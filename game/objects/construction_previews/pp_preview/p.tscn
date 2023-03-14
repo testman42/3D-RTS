@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx3uu7vkwsi26"]
+
+[ext_resource type="PrismMesh" uid="uid://ce3qfm4v6rixy" path="res://game/objects/constructions/prism_of_protection/building2_mesh.tres" id="1_a5ekr"]
+
+[node name="p" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0)
+mesh = ExtResource("1_a5ekr")

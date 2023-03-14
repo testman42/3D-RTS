@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://p4j1orlf1aag"
+path="res://.godot/imported/grenadeFlash.obj-5daead95d6a1730c28e0c5085a51750d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grenadeFlash.obj-5daead95d6a1730c28e0c5085a51750d.mesh"]
+
+source_file="res://game/resources/models/weapon_models/grenadeFlash.obj"
+dest_files=["res://.godot/imported/grenadeFlash.obj-5daead95d6a1730c28e0c5085a51750d.mesh", "res://.godot/imported/grenadeFlash.obj-5daead95d6a1730c28e0c5085a51750d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

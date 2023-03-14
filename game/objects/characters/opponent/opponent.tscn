@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2koapalrl7vk"]
+
+[ext_resource type="Script" path="res://game/components/movement_system/movement_system.gd" id="1_7gml1"]
+[ext_resource type="Script" path="res://game/objects/characters/opponent/opponent.gd" id="1_t1yw6"]
+[ext_resource type="Script" path="res://game/components/health_system/health_system.gd" id="3_6l4sf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5bv1y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jvfhl"]
+
+[node name="opponent" type="CharacterBody3D"]
+script = ExtResource("1_t1yw6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_5bv1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_jvfhl")
+
+[node name="movement_system" type="Node" parent="."]
+script = ExtResource("1_7gml1")
+
+[node name="health_system" type="Node" parent="."]
+script = ExtResource("3_6l4sf")
+
+[connection signal="health_depleted" from="health_system" to="." method="_on_health_system_health_depleted"]

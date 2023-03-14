@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bfxl23n8t4dge"
+path="res://.godot/imported/uziGoldLong.obj-b890669f112b7d0709566a388ad4c359.mesh"
+
+[deps]
+
+files=["res://.godot/imported/uziGoldLong.obj-b890669f112b7d0709566a388ad4c359.mesh"]
+
+source_file="res://game/resources/models/weapon_models/uziGoldLong.obj"
+dest_files=["res://.godot/imported/uziGoldLong.obj-b890669f112b7d0709566a388ad4c359.mesh", "res://.godot/imported/uziGoldLong.obj-b890669f112b7d0709566a388ad4c359.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

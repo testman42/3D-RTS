@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" uid="uid://bntb8tkjfnbtc" path="res://game/user_interface/fps_health_indicator/health_indicator.tscn" id="1_cfle4"]
+[ext_resource type="Script" path="res://game/user_interface/fps_hud/fps_hud.gd" id="1_svrb5"]
+[ext_resource type="PackedScene" uid="uid://cmyqj4sy2i2qx" path="res://game/user_interface/ammo_counter/ammo_counter.tscn" id="2_deypk"]
+[ext_resource type="PackedScene" uid="uid://bh2ji08akwqh" path="res://game/user_interface/crosshair/crosshair.tscn" id="3_q3hqy"]
+
+[node name="fps_hud" type="Node2D"]
+script = ExtResource("1_svrb5")
+
+[node name="health_indicator" parent="." instance=ExtResource("1_cfle4")]
+position = Vector2(195, 599)
+
+[node name="ammo_counter" parent="." instance=ExtResource("2_deypk")]
+position = Vector2(1024, 599)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="crosshair" parent="CenterContainer/Control" instance=ExtResource("3_q3hqy")]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=14 format=3 uid="uid://8c4tuqsyrmba"]
+
+[ext_resource type="Script" path="res://game/input_handler/general_input_handler.gd" id="1_y56v4"]
+[ext_resource type="Script" path="res://game/input_handler/fps_input_handler.gd" id="2_00bv4"]
+[ext_resource type="Script" path="res://game/components/fps_logic/fps_logic.gd" id="2_4tmng"]
+[ext_resource type="PackedScene" path="res://game/user_interface/fps_hud/fps_hud.tscn" id="2_5qjs6"]
+[ext_resource type="PackedScene" uid="uid://cdfcx6hxlc3c5" path="res://game/world/world.tscn" id="2_n7u2b"]
+[ext_resource type="Script" path="res://game/components/rts_logic/rts_logic.gd" id="3_qa8yp"]
+[ext_resource type="PackedScene" uid="uid://cunjnpwyu3um8" path="res://game/user_interface/rts_hud/rts_hud.tscn" id="3_qgjr1"]
+[ext_resource type="Script" path="res://game/input_handler/rts_input_handler.gd" id="3_vakgq"]
+[ext_resource type="Script" path="res://game/components/general_game_logic/general_game_logic.gd" id="4_hmrb6"]
+[ext_resource type="Script" path="res://game/components/rts_tech_tree/tech_tree.gd" id="7_2hcu0"]
+[ext_resource type="Script" path="res://game/components/rts_construction_logic/rts_construction_logic.gd" id="8_gnoj5"]
+[ext_resource type="Script" path="res://game/components/rts_unit_management/unit_management.gd" id="9_ee2sq"]
+[ext_resource type="Script" path="res://game/components/rts_player_management/player_management.gd" id="10_0sjkf"]
+
+[node name="game" type="Node"]
+
+[node name="input_handler" type="Node" parent="."]
+
+[node name="general" type="Node" parent="input_handler"]
+script = ExtResource("1_y56v4")
+
+[node name="fps" type="Node" parent="input_handler"]
+script = ExtResource("2_00bv4")
+
+[node name="rts" type="Node" parent="input_handler"]
+script = ExtResource("3_vakgq")
+
+[node name="game_logic" type="Node" parent="."]
+
+[node name="general" type="Node" parent="game_logic"]
+script = ExtResource("4_hmrb6")
+
+[node name="fps" type="Node" parent="game_logic"]
+script = ExtResource("2_4tmng")
+
+[node name="rts" type="Node" parent="game_logic"]
+script = ExtResource("3_qa8yp")
+
+[node name="tech_tree" type="Node" parent="game_logic/rts"]
+script = ExtResource("7_2hcu0")
+
+[node name="construction_logic" type="Node" parent="game_logic/rts"]
+script = ExtResource("8_gnoj5")
+
+[node name="unit_management" type="Node" parent="game_logic/rts"]
+script = ExtResource("9_ee2sq")
+
+[node name="player_management" type="Node" parent="game_logic/rts"]
+script = ExtResource("10_0sjkf")
+
+[node name="interface" type="Node2D" parent="."]
+
+[node name="fps_hud" parent="interface" instance=ExtResource("2_5qjs6")]
+visible = false
+
+[node name="rts_hud" parent="interface" instance=ExtResource("3_qgjr1")]
+visible = false
+
+[node name="world" parent="." instance=ExtResource("2_n7u2b")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ipwv15i0td63"]
+
+[ext_resource type="Script" path="res://game/user_interface/rts_selection_rectangle/selection_rectangle.gd" id="1_4hvy1"]
+
+[node name="selection_rectangle" type="Node2D"]
+script = ExtResource("1_4hvy1")

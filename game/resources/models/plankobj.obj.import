@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dsf61a7sc833o"
+path="res://.godot/imported/plankobj.obj-10ffa7ddc9482631e41f3ee3e1e3dd04.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plankobj.obj-10ffa7ddc9482631e41f3ee3e1e3dd04.mesh"]
+
+source_file="res://game/resources/models/plankobj.obj"
+dest_files=["res://.godot/imported/plankobj.obj-10ffa7ddc9482631e41f3ee3e1e3dd04.mesh", "res://.godot/imported/plankobj.obj-10ffa7ddc9482631e41f3ee3e1e3dd04.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

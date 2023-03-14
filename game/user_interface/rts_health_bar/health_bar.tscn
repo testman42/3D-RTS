@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck2k17k1v8lxv"]
+
+[ext_resource type="Script" path="res://game/user_interface/rts_health_bar/health_bar.gd" id="1_iwrvu"]
+
+[node name="health_bar" type="Node2D"]
+script = ExtResource("1_iwrvu")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -54.0
+offset_top = -2.0
+offset_right = 54.0
+offset_bottom = 2.0
+show_percentage = false
+
+[node name="background" type="ProgressBar" parent="."]
+offset_left = -56.0
+offset_top = -4.0
+offset_right = 56.0
+offset_bottom = 4.0
+show_percentage = false

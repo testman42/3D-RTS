@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr77jx8yf26bi"]
+
+[ext_resource type="PackedScene" uid="uid://rbyk34lyceq6" path="res://game/objects/vehicle_wheel/wheel.tscn" id="1_673ng"]
+[ext_resource type="Script" path="res://game/objects/vehicles/collector/collector.gd" id="1_yo0tp"]
+[ext_resource type="Script" path="res://game/components/health_system/health_system.gd" id="3_l0j10"]
+[ext_resource type="Script" path="res://game/components/character_guiding_logic/character_guiding_logic.gd" id="4_8pwmv"]
+[ext_resource type="Script" path="res://game/components/player_team_colour/player_team_colour.gd" id="5_2o76n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jfca"]
+size = Vector3(2, 0.7, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hd6k3"]
+size = Vector3(2, 0.7, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ix4rb"]
+size = Vector3(0.2, 0.2, 1.5)
+
+[node name="collector" type="VehicleBody3D"]
+script = ExtResource("1_yo0tp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5jfca")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = SubResource("BoxMesh_hd6k3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.376607, 0)
+mesh = SubResource("BoxMesh_hd6k3")
+
+[node name="wheel" parent="." instance=ExtResource("1_673ng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.24888, -0.544383, 1.2)
+use_as_traction = true
+use_as_steering = true
+
+[node name="wheel3" parent="." instance=ExtResource("1_673ng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.24888, -0.544383, -1.2)
+
+[node name="wheel6" parent="." instance=ExtResource("1_673ng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.24888, -0.544383, 0)
+
+[node name="wheel2" parent="." instance=ExtResource("1_673ng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.249, -0.544383, 1.2)
+use_as_traction = true
+use_as_steering = true
+
+[node name="wheel4" parent="." instance=ExtResource("1_673ng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.249, -0.544383, -1.2)
+
+[node name="wheel7" parent="." instance=ExtResource("1_673ng")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.249, -0.544383, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.944198, 0, -0.329378, 0, 1, 0, 0.329378, 0, 0.944198, -0.615466, -0.175217, -2.43216)
+mesh = SubResource("BoxMesh_ix4rb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.944376, 0, 0.328867, 0, 1, 0, -0.328867, 0, 0.944376, 0.615, -0.175217, -2.432)
+mesh = SubResource("BoxMesh_ix4rb")
+
+[node name="health_system" type="Node" parent="."]
+script = ExtResource("3_l0j10")
+
+[node name="character_guiding_logic" type="Node" parent="."]
+script = ExtResource("4_8pwmv")
+
+[node name="team_colour" type="Node" parent="."]
+script = ExtResource("5_2o76n")

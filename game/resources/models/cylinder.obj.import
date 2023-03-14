@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dapwbroat1gc7"
+path="res://.godot/imported/cylinder.obj-6531d3806c66aec7ec0cdc943dda9112.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cylinder.obj-6531d3806c66aec7ec0cdc943dda9112.mesh"]
+
+source_file="res://game/resources/models/cylinder.obj"
+dest_files=["res://.godot/imported/cylinder.obj-6531d3806c66aec7ec0cdc943dda9112.mesh", "res://.godot/imported/cylinder.obj-6531d3806c66aec7ec0cdc943dda9112.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

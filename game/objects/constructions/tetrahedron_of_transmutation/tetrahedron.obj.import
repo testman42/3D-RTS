@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxnh07gga34w"
+path="res://.godot/imported/tetrahedron.obj-67a42f3cfaf2ab53bb96ebb34596148a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tetrahedron.obj-67a42f3cfaf2ab53bb96ebb34596148a.mesh"]
+
+source_file="res://game/objects/constructions/tetrahedron_of_transmutation/tetrahedron.obj"
+dest_files=["res://.godot/imported/tetrahedron.obj-67a42f3cfaf2ab53bb96ebb34596148a.mesh", "res://.godot/imported/tetrahedron.obj-67a42f3cfaf2ab53bb96ebb34596148a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmg1uxvorilkx"]
+
+[ext_resource type="PrismMesh" uid="uid://ce3qfm4v6rixy" path="res://game/objects/constructions/prism_of_protection/building2_mesh.tres" id="1_ahoq0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q311y"]
+size = Vector3(1, 4, 1)
+
+[node name="prism_of_protection" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_q311y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0)
+mesh = ExtResource("1_ahoq0")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.00083, 0.402143)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500017, 4.00452, -0.408212)
+
+[node name="Marker3D3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500884, 3.99899, -0.402335)

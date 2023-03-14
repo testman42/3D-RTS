@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bh2ji08akwqh"]
+
+[node name="crosshair" type="Node2D"]
+
+[node name="vertical" type="Line2D" parent="."]
+points = PackedVector2Array(0, -10, 0, 10)
+width = 3.0
+
+[node name="horisontal" type="Line2D" parent="."]
+points = PackedVector2Array(10, 0, -10, 0)
+width = 3.0

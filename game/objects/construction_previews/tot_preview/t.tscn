@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpysf3osghvci"]
+
+[ext_resource type="ArrayMesh" uid="uid://cxnh07gga34w" path="res://game/objects/constructions/tetrahedron_of_transmutation/tetrahedron.obj" id="1_66kwh"]
+
+[node name="t" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.7, 0)
+mesh = ExtResource("1_66kwh")

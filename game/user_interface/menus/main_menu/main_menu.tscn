@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dihacmedle0jo"]
+
+[ext_resource type="Script" path="res://game/user_interface/menus/main_menu/main_menu.gd" id="1_0phen"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0phen")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 645.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="start_button" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "play
+"
+
+[node name="settings_button" type="Button" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+text = "settings"
+
+[node name="exit_button" type="Button" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+text = "exit"
+
+[connection signal="pressed" from="CenterContainer/GridContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/exit_button" to="." method="_on_exit_button_pressed"]

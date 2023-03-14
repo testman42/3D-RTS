@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cks6gk42ec8kl"
+path="res://.godot/imported/frustum.obj-56ec05fb65d1b006235c049bb771741a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/frustum.obj-56ec05fb65d1b006235c049bb771741a.mesh"]
+
+source_file="res://game/resources/models/frustum.obj"
+dest_files=["res://.godot/imported/frustum.obj-56ec05fb65d1b006235c049bb771741a.mesh", "res://.godot/imported/frustum.obj-56ec05fb65d1b006235c049bb771741a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

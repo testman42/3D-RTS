@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://lkxa2gmbs8m0"]
+
+[ext_resource type="Script" path="res://game/components/camera/rts_camera/rts_camera.gd" id="1_3gc47"]
+
+[node name="rts_camera" type="Marker3D"]
+script = ExtResource("1_3gc47")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.237059, 0.971495, 0, -0.971495, 0.237059, 0, 29.2166, 7.29297)
+
+[node name="hover_ray" type="RayCast3D" parent="camera"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://tnxg6bunsip5"]
+
+[ext_resource type="Script" path="res://game/objects/characters/player/player.gd" id="1_typkr"]
+[ext_resource type="PackedScene" uid="uid://bjsh2h78atl7l" path="res://game/components/camera/first_person_camera/first_person_camera.tscn" id="2_i8tmr"]
+[ext_resource type="PackedScene" uid="uid://daiadgw32hrwb" path="res://game/objects/weapons/test_weapon/test_weapon.tscn" id="3_0mdbk"]
+[ext_resource type="Script" path="res://game/components/mouselook/mouselook.gd" id="3_cr7dd"]
+[ext_resource type="Script" path="res://game/components/movement_system/movement_system.gd" id="4_4ji8x"]
+[ext_resource type="Script" path="res://game/components/jump/jump.gd" id="5_a2i8e"]
+[ext_resource type="Script" path="res://game/components/health_system/health_system.gd" id="7_e42kj"]
+[ext_resource type="Script" path="res://game/components/shoot/shoot.gd" id="8_ok1uf"]
+[ext_resource type="Script" path="res://game/components/inventory/inventory.gd" id="9_227m8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s8q7m"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dpf4e"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_typkr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_s8q7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_dpf4e")
+
+[node name="first_person_camera" parent="." instance=ExtResource("2_i8tmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.527907, 0.272962)
+current = true
+
+[node name="aim_ray" type="RayCast3D" parent="first_person_camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01629)
+target_position = Vector3(0, 0, -100)
+
+[node name="projectile_anchor" type="Marker3D" parent="first_person_camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11575)
+
+[node name="weapon_anchor" type="Marker3D" parent="first_person_camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509477, -0.329685, -0.426812)
+
+[node name="test_weapon" parent="first_person_camera/weapon_anchor" instance=ExtResource("3_0mdbk")]
+transform = Transform3D(0.9998, 0, -0.0200176, 0, 1, 0, 0.0200176, 0, 0.9998, 0, 0, 0)
+
+[node name="mouselook" type="Node" parent="."]
+script = ExtResource("3_cr7dd")
+
+[node name="movement_system" type="Node" parent="."]
+script = ExtResource("4_4ji8x")
+
+[node name="jump" type="Node" parent="."]
+script = ExtResource("5_a2i8e")
+
+[node name="health_system" type="Node" parent="."]
+script = ExtResource("7_e42kj")
+
+[node name="shoot" type="Node" parent="."]
+script = ExtResource("8_ok1uf")
+
+[node name="inventory" type="Node" parent="."]
+script = ExtResource("9_227m8")
+
+[connection signal="health_changed" from="health_system" to="." method="_on_health_system_health_changed"]

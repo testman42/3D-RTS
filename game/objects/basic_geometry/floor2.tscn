@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cok2q6mjk7nio"]
+
+[ext_resource type="NavigationMesh" uid="uid://bbqa7lj8bkg6c" path="res://game/resources/navmesh_plane/navmesh_plane.tres" id="1_k61un"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3gq7k"]
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5we5c"]
+albedo_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_681um"]
+size = Vector3(50, 0.1, 50)
+
+[node name="test" type="Node3D"]
+
+[node name="floor2" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_3gq7k")
+surface_material_override/0 = SubResource("StandardMaterial3D_5we5c")
+
+[node name="collision" type="StaticBody3D" parent="floor2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2/collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_681um")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="floor2"]
+navigation_mesh = ExtResource("1_k61un")
+
+[node name="navmesh_source" type="MeshInstance3D" parent="floor2/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17982, 0)
+mesh = SubResource("PlaneMesh_3gq7k")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5we5c")

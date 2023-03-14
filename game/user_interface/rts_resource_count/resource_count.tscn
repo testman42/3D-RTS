@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://c56ca8uns4mif"]
+
+[ext_resource type="Script" path="res://game/user_interface/rts_resource_count/resource_count.gd" id="1_ljdcr"]
+
+[node name="resource_count" type="Node2D"]
+script = ExtResource("1_ljdcr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -102.0
+offset_top = -14.0
+offset_right = 103.0
+offset_bottom = 14.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="background" type="ProgressBar" parent="."]
+offset_left = -122.0
+offset_top = -14.0
+offset_right = 124.0
+offset_bottom = 13.0
+show_percentage = false

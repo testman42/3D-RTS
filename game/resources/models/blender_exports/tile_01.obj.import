@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jg4raw64o5k"
+path="res://.godot/imported/tile_01.obj-50d75d65eed7ed1c689e3135f7a2f611.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tile_01.obj-50d75d65eed7ed1c689e3135f7a2f611.mesh"]
+
+source_file="res://game/resources/models/blender_exports/tile_01.obj"
+dest_files=["res://.godot/imported/tile_01.obj-50d75d65eed7ed1c689e3135f7a2f611.mesh", "res://.godot/imported/tile_01.obj-50d75d65eed7ed1c689e3135f7a2f611.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

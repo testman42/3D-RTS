@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://c12p601tovnry"]
+
+[ext_resource type="PackedScene" uid="uid://cec2i23drpf08" path="res://game/user_interface/rts_build_menu/button.tscn" id="1_2t1f8"]
+[ext_resource type="Script" path="res://game/user_interface/rts_build_menu/grid.gd" id="1_bnrol"]
+
+[node name="units_grid" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("1_bnrol")
+
+[node name="collector" parent="." instance=ExtResource("1_2t1f8")]
+layout_mode = 2
+text = "Collector"
+object_name = "collector"
+button_type = 2
+
+[node name="testcar" parent="." instance=ExtResource("1_2t1f8")]
+layout_mode = 2
+text = "TestCar"
+object_name = "testcar"
+button_type = 2
+
+[node name="testtank" parent="." instance=ExtResource("1_2t1f8")]
+layout_mode = 2
+text = "TestTank"
+object_name = "testtank"
+button_type = 2
+
+[node name="placehodler_tank" parent="." instance=ExtResource("1_2t1f8")]
+layout_mode = 2
+text = "Placeholder
+Tank"
+object_name = "placeholdertank"
+button_type = 2
+
+[node name="serious_tank" parent="." instance=ExtResource("1_2t1f8")]
+layout_mode = 2
+text = "Serious
+Tank"
+object_name = "serioustank"
+button_type = 2
+
+[node name="cubio" parent="." instance=ExtResource("1_2t1f8")]
+layout_mode = 2
+text = "Cubio"
+object_name = "cubio"
+button_type = 2

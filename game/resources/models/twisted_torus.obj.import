@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmaebo5xmgdxp"
+path="res://.godot/imported/twisted_torus.obj-d6aef37487b6a3ac43e8aad5476f0d53.mesh"
+
+[deps]
+
+files=["res://.godot/imported/twisted_torus.obj-d6aef37487b6a3ac43e8aad5476f0d53.mesh"]
+
+source_file="res://game/resources/models/twisted_torus.obj"
+dest_files=["res://.godot/imported/twisted_torus.obj-d6aef37487b6a3ac43e8aad5476f0d53.mesh", "res://.godot/imported/twisted_torus.obj-d6aef37487b6a3ac43e8aad5476f0d53.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfw7cb5vaxqc0"]
+
+[ext_resource type="ArrayMesh" uid="uid://5h74vfqjq6d2" path="res://game/objects/constructions/cone_of_construction/cone.obj" id="1_2g1ro"]
+
+[node name="cone_of_construction" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0)
+mesh = ExtResource("1_2g1ro")

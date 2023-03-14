@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh1hvl47a5bm1"]
+
+[ext_resource type="ArrayMesh" uid="uid://b850ghxeqclx0" path="res://game/objects/constructions/orb_of_observation/ball.obj" id="1_c8cxe"]
+
+[node name="orb_of_observation" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+mesh = ExtResource("1_c8cxe")

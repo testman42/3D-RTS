@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://duqrlvy0ujqfy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_670pn"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pw3b"]
+albedo_color = Color(0, 0, 0.188235, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5inrw"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_v1mps"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ho7ws"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvf2t"]
+size = Vector3(5, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3drhh"]
+size = Vector3(5, 3, 1)
+
+[node name="meshlibrary1" type="Node3D"]
+
+[node name="floor_tile" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_670pn")
+surface_material_override/0 = SubResource("StandardMaterial3D_7pw3b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_tile"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile/StaticBody3D"]
+shape = SubResource("BoxShape3D_5inrw")
+
+[node name="navmesh_floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_670pn")
+surface_material_override/0 = SubResource("StandardMaterial3D_7pw3b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="navmesh_floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="navmesh_floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_5inrw")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="navmesh_floor"]
+navigation_mesh = SubResource("NavigationMesh_v1mps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="navmesh_floor/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_ho7ws")
+
+[node name="wall_tile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54512, 0, 0)
+mesh = SubResource("BoxMesh_kvf2t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_tile"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_tile/StaticBody3D"]
+shape = SubResource("BoxShape3D_3drhh")
